@@ -31,7 +31,9 @@ const GetAllLists = () => {
       if (boardData?.name) setBoardName(boardData.name);
     };
 
-    fetchData();
+  useEffect(() =>{
+    fetchData()},[]
+           )
 
 
   return (
