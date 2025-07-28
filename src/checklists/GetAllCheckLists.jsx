@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { DeleteCheckList, getChecklist,GetCheckItemsAPI } from '../ApiHelpers'
 import { Card, CardContent, Checkbox, Typography, Button, LinearProgress, Box } from '@mui/material';
-import CreateCheckList from './createCheckList';
+import CreateCheckList from './CreateCheckList';
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 import GetCheckItems from '../checkitems/GetCheckItems';
 import CreateItem from '../checkitems/CreateItem';
