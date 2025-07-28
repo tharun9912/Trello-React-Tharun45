@@ -9,7 +9,6 @@ export const GetAllBoards = async () => {
     try {
          const url = `https://api.trello.com/1/members/me/boards?key=${key}&token=${token}`;
          const response = await axios.get(url);
-         console.log(response.data);
          return response.data;
     } catch (error) {
         console.log("failed to fetch trello boards:",error);
