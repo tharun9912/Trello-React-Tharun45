@@ -10,13 +10,14 @@ import { GetAllBoards } from '../ApiHelpers';
 const Show = () => {
   const [boards, setBoards] = useState();
 
-  useEffect(() => {
     const FetchBoards = async () => {
       const data = await GetAllBoards();
       setBoards(data);
     };
-    FetchBoards();
-  }, []);
+  useEffect(()=>{
+    FetchBoards()
+  },[]);
+  
 
   return (
     <Box sx={{ mt: 15, ml: '25px' }}>
@@ -72,7 +73,7 @@ const Show = () => {
               </Card>
             </Link>
           ))}
-        <CreateBoard />
+        <CreateBoard  onBoardCreated={FetchBoards}/>
       </Box>
     </Box>
   );
