@@ -22,7 +22,6 @@ const GetAllLists = () => {
   const backgroundImage = location.state?.backgroundImage || '';
   const backgroundColor = location.state?.backgroundColor || '#ffffff';
 
-  useEffect(() => {
     const fetchData = async () => {
       const [listData, boardData] = await Promise.all([
         Getlists(boardId),
@@ -33,7 +32,7 @@ const GetAllLists = () => {
     };
 
     fetchData();
-  }, [boardId]);
+
 
   return (
     <Box sx={{ height: '100vh', width: '100vw', overflow: 'hidden', m: 0, p: 0 }}>
@@ -112,7 +111,10 @@ const GetAllLists = () => {
                 <span>{list.name}</span>
                 <DeleteIcon
                   sx={{ cursor: 'pointer' }}
-                  onClick={() => DeleteList(list.id)}
+                  onClick={() => {DeleteList(list.id);
+                                  fetchData();
+                                 }}
+                  
                 />
               </CardContent>
               <GetAllCards id={list.id} />
