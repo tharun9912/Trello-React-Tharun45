@@ -5,7 +5,7 @@ import axios from 'axios'
 const key = import.meta.env.VITE_TRELLO_KEY;
 const token = import.meta.env.VITE_TRELLO_TOKEN;
 
-const CreateBoard = () => {
+const CreateBoard = ({onBoardCreated}) => {
   const [msg,setMsg] = useState("");
   const [board,setBoard] = useState("");
   async function handleClick()
@@ -19,6 +19,7 @@ const CreateBoard = () => {
     try 
     {
       const resposne = await axios.post(url);
+      await onBoardCreated()
       setMsg(`Board "${resposne.data.name}" created successfully!`);
       setBoard("");
     } catch (error)
